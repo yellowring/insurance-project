@@ -1,4 +1,4 @@
-package com.myinsurance.insuranceproject.domain;
+package com.myinsurance.insuranceproject.domain.user;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -13,7 +13,6 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 public class User {
 
     @Id
@@ -32,5 +31,15 @@ public class User {
     private String role = "USER";
 
     private LocalDateTime createAt = LocalDateTime.now();
+
+    public User(String username, String password, String email) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.role = "USER";
+        this.createAt = LocalDateTime.now();
+    }
+
+
 
 }
