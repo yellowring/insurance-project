@@ -28,18 +28,25 @@ public class User {
     @Column(nullable = false, unique = true)
     private String email;
 
+    @Column(nullable = false)
+    private String phoneNumber;
+
+    @Column(nullable = false)
+    private String signupType; // EMAIL or KAKAO
+
     private String role = "USER";
 
     private LocalDateTime createAt = LocalDateTime.now();
 
-    public User(String username, String password, String email) {
+
+    public User(String username, String password, String email, String phoneNumber, String signupType) {
         this.username = username;
         this.password = password;
         this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.signupType = signupType;
         this.role = "USER";
         this.createAt = LocalDateTime.now();
     }
-
-
 
 }

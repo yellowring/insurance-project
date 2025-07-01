@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: insurance-project
+  profiles:
+    active: local
+
+
+
+
