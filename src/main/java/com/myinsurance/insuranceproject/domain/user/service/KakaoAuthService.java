@@ -1,7 +1,7 @@
 package com.myinsurance.insuranceproject.domain.user.service;
 
-import com.myinsurance.insuranceproject.domain.user.User;
-import com.myinsurance.insuranceproject.domain.user.UserRepository;
+import com.myinsurance.insuranceproject.domain.user.entity.User;
+import com.myinsurance.insuranceproject.domain.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

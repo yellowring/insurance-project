@@ -1,7 +1,7 @@
 package com.myinsurance.insuranceproject.security;
 
-import com.myinsurance.insuranceproject.domain.user.User;
-import com.myinsurance.insuranceproject.domain.user.UserRepository;
+import com.myinsurance.insuranceproject.domain.user.entity.User;
+import com.myinsurance.insuranceproject.domain.user.repository.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

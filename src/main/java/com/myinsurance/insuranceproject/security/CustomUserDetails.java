@@ -1,6 +1,6 @@
 package com.myinsurance.insuranceproject.security;
 
-import com.myinsurance.insuranceproject.domain.user.User;
+import com.myinsurance.insuranceproject.domain.user.entity.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 

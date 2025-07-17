@@ -1,4 +1,4 @@
-package com.myinsurance.insuranceproject.domain.user;
+package com.myinsurance.insuranceproject.domain.user.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

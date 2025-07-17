@@ -1,11 +1,13 @@
 package com.myinsurance.insuranceproject.domain.user.service;
 
-import com.myinsurance.insuranceproject.domain.user.User;
-import com.myinsurance.insuranceproject.domain.user.UserRepository;
+import com.myinsurance.insuranceproject.domain.user.entity.User;
+import com.myinsurance.insuranceproject.domain.user.repository.UserRepository;
 import com.myinsurance.insuranceproject.domain.user.dto.SignupRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -31,7 +33,15 @@ public class UserService {
         "EMAIL" // signType : 카카오는 kakao로 다른 서비스에 따로받음.
     );
 
-
     userRepository.save(user);
   }
+
+  public Optional<User> findUserByPhoneNumber(String phoneNumber) {
+    return userRepository.findByPhoneNumber(phoneNumber);
+  }
+
+  public void saveUser(User user) {
+    userRepository.save(user);
+  }
+
 }
