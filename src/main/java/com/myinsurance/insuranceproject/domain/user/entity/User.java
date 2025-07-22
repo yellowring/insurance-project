@@ -1,10 +1,7 @@
 package com.myinsurance.insuranceproject.domain.user.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
@@ -13,6 +10,8 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @NoArgsConstructor
+@Builder
+@AllArgsConstructor
 public class User {
 
     @Id
@@ -33,6 +32,8 @@ public class User {
 
     @Column(nullable = false)
     private String signupType; // EMAIL or KAKAO
+
+    private String kakaoId;    // 카카오 회원만 값 있음, 이메일 가입은 null
 
     private String role = "USER";
 
@@ -60,17 +61,6 @@ public class User {
 
     @Column(nullable = true)
     private LocalDateTime verificationCodeExpiry; // 인증 코드 만료 시간
-
-
-    public User(String username, String password, String email, String phoneNumber, String signupType) {
-        this.username = username;
-        this.password = password;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.signupType = signupType;
-        this.role = "USER";
-        this.createAt = LocalDateTime.now();
-    }
 
     // 간편비밀번호 설정 (비밀번호 설정 시 실패 횟수 초기화 및 잠금 해제)
     public void setSimplePassword(String encodedSimplePassword) {
@@ -100,7 +90,7 @@ public class User {
                 LocalDateTime.now().isBefore(this.simplePasswordLockedUntil);
     }
 
-    // 휴대폰 본인인증 처리 (전화번호 저장 + 인증 완료 처리)
+    // 휴대폰 본인인증 처리 (전화번호 저장 + 인증 완료 처리) - 가입 후 추가인증 위한 처리
     public void verifyPhone(String phoneNumber) {
         this.phoneNumber = phoneNumber;
         this.phoneVerified = true;
