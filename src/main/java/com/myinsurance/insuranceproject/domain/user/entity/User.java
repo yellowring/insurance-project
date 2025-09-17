@@ -39,6 +39,9 @@ public class User {
 
     private LocalDateTime createAt = LocalDateTime.now();
 
+    @Column(length = 500)
+    private String refreshToken;
+
     // 간편비밀번호 관련 필드 추가
     @Column(nullable = true)
     private String simplePassword; // 간편비밀번호 (6자리 숫자)
